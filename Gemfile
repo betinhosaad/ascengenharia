@@ -40,7 +40,7 @@ gem 'devise', '~> 3.4.1'
 
 gem "paperclip", "~> 5.0.0"
 gem 'fancybox2-rails', '~> 0.2.8'
-gem "rails_d
+gem 'rails_admin', '~> 1.0'
 gem "prawn"
 gem 'prawn-table', '~> 0.1.0'
 gem "rails_admin_import", "~> 2.0"

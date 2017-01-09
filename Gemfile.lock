@@ -255,7 +255,7 @@ DEPENDENCIES
   prawn-table (~> 0.1.0)
   rails (= 4.2.4)
   rails_12factor
-  rails_admin
+  rails_admin (~> 1.0)
   rails_admin_import (~> 2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

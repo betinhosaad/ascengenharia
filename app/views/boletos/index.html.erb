@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Boletos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Preco</th>
+      <th>Vencimento</th>
+      <th>Descricao</th>
+      <th>Parcelas</th>
+      <th>Situacao</th>
+      <th colspan="3">Imprimir</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boletos.each do |boleto| %>
+      <tr>
+        <td><%= boleto.preco %></td>
+        <td><%= boleto.vencimento %></td>
+        <td><%= boleto.descricao %></td>
+        <td><%= boleto.parcelas %></td>
+        <td><%= boleto.situacao %></td>
+        <td><%= link_to 'Show', boleto %></td>
+        <td><%= link_to 'Edit', edit_boleto_path(boleto) %></td>
+        <td><%= link_to 'Destroy', boleto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+  </tbody>
+      <% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Boleto', new_boleto_path %>

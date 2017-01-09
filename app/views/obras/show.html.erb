@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Obra: <%= @obra.name %></h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <br>
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <%= link_to obra_acompanhamento_path(@obra), class: "btn btn-app acompanhamento" do %>
+              <i class="fa fa-line-chart"></i> Acompanhamento
+          <% end %>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <%= link_to obra_galeria_path(@obra), class: "btn btn-app galeria" do %>
+              <i class="fa fa-photo"></i> Galeria
+          <% end %>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <%= link_to obra_boletos_path(@obra), class: "btn btn-app pagamento" do %>
+              <i class="fa fa-credit-card"></i> Pagamentos
+          <% end %>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <%= link_to obra_docs_path(@obra), class: "btn btn-app documento" do %>
+              <i class="fa fa-file"></i> Documentos
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

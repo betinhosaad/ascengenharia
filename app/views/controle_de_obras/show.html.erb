@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @controle_de_obra.data %>
+</p>
+
+<p>
+  <strong>Nf:</strong>
+  <%= @controle_de_obra.nf %>
+</p>
+
+<p>
+  <strong>Fornecedor:</strong>
+  <%= @controle_de_obra.fornecedor %>
+</p>
+
+<p>
+  <strong>Recebido:</strong>
+  <%= @controle_de_obra.recebido %>
+</p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @controle_de_obra.pago %>
+</p>
+
+<p>
+  <strong>Obra:</strong>
+  <%= @controle_de_obra.obra %>
+</p>
+
+<%= link_to 'Edit', edit_controle_de_obra_path(@controle_de_obra) %> |
+<%= link_to 'Back', controle_de_obras_path %>

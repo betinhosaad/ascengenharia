@@ -1,0 +1,57 @@
+<%= form_for(@funcionario) do |f| %>
+  <% if @funcionario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@funcionario.errors.count, "error") %> prohibited this funcionario from being saved:</h2>
+
+      <ul>
+      <% @funcionario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :rg %><br>
+    <%= f.text_field :rg, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br>
+    <%= f.text_field :cpf, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :adress %><br>
+    <%= f.text_field :adress, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :ctps %><br>
+    <%= f.text_field :ctps, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :in_date %><br>
+    <%= f.date_select :in_date, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :out_date %><br>
+    <%= f.date_select :out_date, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :function %><br>
+    <%= f.collection_select :function_id, Function.all, :id, :name, {prompt: "Selecione uma Função"}, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :obra_id %><br>
+    <%= f.collection_select :obra_id, Obra.all, :id, :name, {prompt: "Selecione uma Obra"}, {class: "form-control"} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

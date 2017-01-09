@@ -1,0 +1,62 @@
+<div  id="post_<%= controle_de_obra.id %>" >
+
+        
+              <tr>
+                <td><%= controle_de_obra.data %></td>
+                <td><%= controle_de_obra.nf %></td>
+                <td><%= controle_de_obra.fornecedor %></td>
+                <td><%= to_reais(controle_de_obra.recebido) %></td>
+                <td><%= to_reais(controle_de_obra.pago) %></td>
+                <td><%= controle_de_obra.obra.name %></td>
+                <td><%= link_to 'Show', controle_de_obra %></td>
+                <td><a href="#" type="button" data-toggle="modal" data-target="#myupdatepost_<%= controle_de_obra.id %>">Editar</a></td>
+                <td><%= link_to 'Destroy', controle_de_obra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+        <!-- Modal - update controle_de_obras -->
+              <%= form_for(controle_de_obra, :method => :put) do |f| %>
+              <div class="modal fade" id="myupdatepost_<%= controle_de_obra.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit</h4>
+                  </div>
+                  <div class="modal-body">
+
+                  <div class="field">
+            <%= f.label :data %><br>
+            <%= f.date_select :data, class: "form-control controle_de_obra_data" %>
+          </div>
+          <div class="field">
+            <%= f.label :nf %><br>
+            <%= f.number_field :nf, class: "form-control controle_de_obra_nf" %>
+          </div>
+          <div class="field">
+            <%= f.label :fornecedor %><br>
+            <%= f.text_field :fornecedor, class: "form-control controle_de_obra_fornecedor" %>
+          </div>
+          <div class="field">
+            <%= f.label :recebido %><br>
+            <%= f.text_field :recebido, class: "form-control controle_de_obra_recebido" %>
+          </div>
+          <div class="field">
+            <%= f.label :pago %><br>
+            <%= f.text_field :pago, class: "form-control controle_de_obra_pago" %>
+          </div>
+          <div class="field">
+            <%= f.label :obra_id %><br>
+            <%= f.text_field :obra_id, class: "form-control controle_de_obra_id" %>
+          </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <%= submit_tag "Update", class: "btn btn-primary" %>
+                    <button type="button" id="myupdatebutton_<%= controle_de_obra.id %>" class="btn btn-default" data-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
+              </div>
+              </div>
+              <% end %>
+    
+</div>

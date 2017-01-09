@@ -1,0 +1,146 @@
+<div class="row top_tiles">
+  <%= link_to obra_galeria_path(@obra) do %>
+  <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="tile-stats">
+      <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+      <div class="count">
+        <% @var = 0 %>
+        <% @obra.galeria.each do |g| %>
+          <% @var += g.images.count %>
+        <% end %>
+        <%= @var %>
+      </div>
+      <h3>Fotos</h3>
+      <p>Clique para ver as fotos de sua obra.</p>
+    </div>
+  </div>
+  <% end %>
+  <%= link_to obra_reports_path(@obra) do %>
+  <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="tile-stats">
+      <div class="icon"><i class="fa fa-comments-o"></i></div>
+      <div class="count"><%= @obra.reports.count %></div>
+      <h3>Relatórios</h3>
+      <p>Clique para ver os relatórios de sua obra.</p>
+    </div>
+  </div>
+  <% end %>
+  <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="tile-stats">
+      <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+      <div class="count"><%= ((Date.current) - (@obra.start_date.to_date)).to_i %></div>
+      <h3>Dias</h3>
+      <p>Decorridos desde o início de sua obra.</p>
+    </div>
+  </div>
+  <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="tile-stats">
+      <div class="icon"><i class="fa fa-check-square-o"></i></div>
+      <div class="count">0%</div>
+      <h3>Pago</h3>
+      <p>Porcentagem quitada de sua obra.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Últimos Relatórios</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <table class="table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>RDO Nº</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reports.last(5).each do |r| %>
+          <tr>
+            <td><%= r.data.strftime("%d / %m / %Y") %></td>
+            <td><%= r.id %></td>
+            <td><%= link_to "Ver", obra_report_path(r, r.id, format:"pdf") %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table> 
+              <div class="row text-center">
+          <span> <%= link_to 'Ver Todos', obra_reports_path(@obra) %></span>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Últimas Fotos</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <div class="row">
+            <% @obra.galeria.each do |galeria| %>
+              <% galeria.images.take(10).each do |image| %>
+          <div class="col-md-55 image">
+            <%= link_to image.foto.url, class: "fancybox", :rel => 'group' do %>
+            <%= image_tag image.foto.url(:thumb) %>
+            <% end %>
+          </div>
+            
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="x_footer">
+        <div class="row text-center">
+          <span><%= link_to "Ver Todas", obra_galeria_path(@obra) %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="col-md-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_content">    
+      <table id="controle2">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Nf</th>
+            <th>Fornecedor</th>
+            <th>Categoria</th>
+            <th>Recebido</th>
+            <th>Pago</th>
+            <th>Saldo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @var = 0 %>
+          <% @obra.controle_de_obras.each do |controle_de_obra| %>
+            <tr>
+              <td><%= controle_de_obra.data %></td>
+              <td><%= controle_de_obra.nf %></td>
+              <td><%= controle_de_obra.fornecedor %></td>
+              <td></td>
+              <td><%= to_reais(controle_de_obra.recebido) %></td>
+              <td><%= to_reais(controle_de_obra.pago) %></td>
+              <td><%= to_reais(@var.to_f + controle_de_obra.recebido.to_f - controle_de_obra.pago.to_f) %> </td>
+            </tr>
+            <% @var = @var.to_f + controle_de_obra.recebido.to_f - controle_de_obra.pago.to_f %>
+          <% end %>
+        </tbody>
+      </table>
+      
+        <div class="row">
+        <%= link_to "Voltar", obra_path(@obra), class: "btn btn-info" %>
+        </div>
+    </div>
+  </div>
+</div>

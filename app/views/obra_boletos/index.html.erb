@@ -1,0 +1,60 @@
+<div class="col-md-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Meus Boletos</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <!-- start project list -->
+        <table class="table table-striped projects">
+          <thead>
+            <tr>
+              <th style="width: 10%">Parcelas</th>
+              <th style="width: 10%">Vencimento</th>
+              <th style="width: 40%">Descricao</th>
+              <th style="width: 15%">Preco</th>
+              <th style="width: 15%">Situacao</th>
+              <th style="width: 10%"></th>
+            </tr>
+          </thead>
+          <tbody>
+                <% @obra.boletos.each_with_index do |boleto, index| %>
+                    <tr>
+                        <td><%= index + 1%>/<%= boleto.parcelas %></td>
+                        <td><%= boleto.vencimento.strftime("%d / %m / %Y") %></td>
+                        <td><%= boleto.descricao %></td>
+                        <td><%= to_reais(boleto.preco) %></td>
+                        <td>
+                          <% if boleto.situacao %>
+                          <i class="fa fa-check"> Pago</i>
+                          <% else %>
+                          <i class="fa fa-ban"> Não pago</i>
+                          <% end %>
+                        
+                        </td>
+                      <td class="pull-right">
+                            <% if !boleto.fatura.blank? %>
+                                <%= link_to boleto.fatura.url, class: "btn btn-primary btn-xs" do %>
+                                <i class="fa fa-print"></i> Imprimir
+                                <% end %>
+                            <% else %>
+                                <i class="fa fa-folder"></i> Sem anexos
+                            <% end %>
+                      </td>
+                    </tr>
+                <% end %>
+          </tbody>  
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="pull-right">Total</td>
+              <td>
+                <%= to_reais(@obra.boletos.sum(:preco)) %>
+              </td>
+            </tr>
+        </table>
+        <!-- end project list -->
+        <%= link_to "Voltar", obra_path(@obra), class: "btn btn-info" %>
+      </div>
+    </div>
+</div>

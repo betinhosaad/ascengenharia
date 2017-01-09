@@ -1,0 +1,45 @@
+<%= form_for @boleto, html: { multipart: true } do |f| %>
+  <% if @boleto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boleto.errors.count, "error") %> prohibited this boleto from being saved:</h2>
+
+      <ul>
+      <% @boleto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :preco %><br>
+    <%= f.text_field :preco, class: "form-control" %>
+  </div>  
+  <div class="form-group">
+    <%= f.label :vencimento %><br>
+    <%= f.date_select :vencimento, class: "form-control" %>
+  </div>  
+  <div class="form-group">
+    <%= f.label :descricao %><br>
+    <%= f.text_area :descricao, class: "form-control" %>
+  </div>  
+  <div class="form-group">
+    <%= f.label :parcelas %><br>
+    <%= f.number_field :parcelas, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fatura %><br>
+    <%= f.file_field :fatura %>
+  </div>  
+  <div class="form-group">
+    <%= f.label :obra %><br>
+    <%= f.collection_select :obra_id, Obra.all, :id, :name, {prompt: "Selecione uma obra"}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :situacao, "Boleto pago?" %>
+    <%= f.check_box :situacao %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Gerar Boleto", class: "btn btn-primary" %>
+  </div>
+<% end %>

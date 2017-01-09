@@ -1,0 +1,64 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2> Edite seu Perfil</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <br>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , class: "form-horizontal form-label-left edit_user"}) do |f| %>
+        <%= devise_error_messages! %>
+        
+        <div class="item form-group">
+
+          <%= f.label :avatar, class: "control-label col-md-3 col-sm-3 col-xs-12"  %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <% if current_user.avatar %>
+              <%= image_tag current_user.avatar.url(:medium) %>
+            <% end %>
+            <%= f.file_field :avatar, class:"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+        <div class="item form-group">
+          <%= f.label :email, class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <%= f.email_field :email, autofocus: "true", class:"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+      
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+      
+        <div class="item form-group">
+          <%= f.label :password, "Senha Atual", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+             <%= f.password_field :password, autocomplete: "off", autofocus: "true", class:"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+      
+        <div class="item form-group">
+          <%= f.label :password_confirmation, "Confirme sua Senha Atual", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+             <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: "true", class:"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+        
+        <div class="item form-group">
+          <%= f.label :current_password, "Digite sua senha atual", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+             <%= f.password_field :current_password, autocomplete: "off", autofocus: "true", class:"form-control col-md-7 col-xs-12" %>
+          </div>
+        </div>
+        <div class="actions col-md-6 col-md-offset-3">
+          <%= link_to "Voltar", root_path, class:"btn btn-primary" %>
+          <%= f.submit "Atualizar sua conta", class: "btn btn-success" %>
+        </div>
+      <% end %>
+      <div class="ln_solid"></div>
+      
+      <p>Deseja cancelar sua conta? <%= link_to "Sim, quero cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "label label-default" %></p>
+      
+    </div>
+  </div>
+</div>

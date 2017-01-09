@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Suas Fotos</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <div class="row">
+          <% @obra.galeria.each do |galeria| %>
+            <div class="col-md-55">
+              <div class="galeriathumb thumbnail">
+                <div class="image view view-first">
+                  <% if !galeria.images.blank? %>
+                  <%= link_to image_tag(galeria.images.first.foto.url(:medium))  %>
+                  <% end %>
+                  <%= link_to polymorphic_path([@obra, galeria]), data: { no_turbolink: true }  do %>
+                  <div class="mask">
+                    <p>Clique para ver as imagens.</p>
+                  </div>
+                </div>
+                  <div class="caption">
+                    <strong><%= galeria.name %></strong>
+                    <p><%= truncate(galeria.description, :length => 25) %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="row">
+        <%= link_to "Voltar", obra_path(@obra), class: "btn btn-info" %>
+        </div>
+    </div>
+  </div>
+</div>
+
+

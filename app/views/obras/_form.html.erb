@@ -1,0 +1,44 @@
+<%= form_for @obra, html: { multipart: true } do |f| %>
+  <% if @obra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@obra.errors.count, "error") %> prohibited this obra from being saved:</h2>
+
+      <ul>
+      <% @obra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @obra.image %>
+    <%= image_tag @obra.image.url(:medium) %>
+  <% end %>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :user %><br>
+  <%= f.collection_select :user_id, User.all, :id, :email, {prompt: "Selecione um usuario"}, {class: "form-control"} %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :locale %><br>
+    <%= f.text_field :locale, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="ln_solid"></div>
+  <div class="actions">
+    <%= f.submit "Criar Obra", class: "btn btn-primary" %>
+  </div>
+<% end %>

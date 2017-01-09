@@ -1,0 +1,37 @@
+<!-- page content -->
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Minhas Obras</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br>
+        <% if !current_user.obras.blank? %>
+        <% current_user.obras.each do |obra| %>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <%= link_to image_tag(obra.image.url(:medium)), obra_path(obra) %>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="tile-stats tile-plain">
+                  <div class="icon"><i class="fa fa-building-o"></i>
+                  </div>
+                  <div class="count"><%= link_to obra.name, obra_path(obra) %></div>
+
+                  <h3><%= obra.locale %></h3>
+                  <p>Data de início: <%= obra.start_date.strftime("%d / %m / %Y") if !obra.start_date.blank? %></p>
+                  <p>Objeto: <%= obra.description %></p>
+                </div>
+                
+            </div>
+        </div>
+              <div class="ln_solid"></div>
+        <% end %>
+        <% else %>
+          Ainda não adicionamos sua obra aqui.<br> Qualquer dúvida contate-nos.
+        <% end %>
+      </div>
+    </div>
+</div>
+<!-- /page content -->

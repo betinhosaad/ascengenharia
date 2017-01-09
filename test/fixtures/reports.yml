@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2017-01-03
+  clima_id: 
+  tarefas: MyText
+  ocorrencias: MyText
+  obra_id: 
+
+two:
+  data: 2017-01-03
+  clima_id: 
+  tarefas: MyText
+  ocorrencias: MyText
+  obra_id: 

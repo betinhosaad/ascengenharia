@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Meus Relatórios de Obra</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <!-- start project list -->
+      <table class="table table-bordered projects">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>RDO Nº</th>
+            <th></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @reports.each do |report| %>
+            <tr>
+              <td><%= report.data.strftime("%d / %m / %Y") if !report.data.blank? %></td>
+              <td><%= report.id %></td>
+              <td><%= link_to "Ver", obra_report_path(report, report.id, format:"pdf") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+        <%= link_to "Voltar", obra_path(@obra), class: "btn btn-info" %>
+      </div>
+    </div>
+</div>

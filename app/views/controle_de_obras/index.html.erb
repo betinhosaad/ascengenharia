@@ -1,0 +1,93 @@
+  <div class="col-md-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_content">    
+        <table id="controle">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Nf</th>
+              <th>Fornecedor</th>
+              <th>Recebido</th>
+              <th>Pago</th>
+              <th>Obra</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <div id="container_posts">
+              <%= render @controle_de_obras %>
+            </div>
+          </tbody>
+        </table>        <!-- Modal -->
+
+      </div>
+    </div>
+  </div>
+
+<br>
+<hr>
+
+<div class="row">
+  <div class="text-center">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mynewpost">
+        Novo Registro
+      </button>
+  </div>
+</div>
+<!-- Modal  create action -->
+  <%= form_for(@controle_de_obra) do |f| %>
+    <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title text-center" id="myModalLabel">Novo Registro</h4>
+        </div>
+        
+        <div class="modal-body">
+          <div class="x_panel">
+            <div class="x_content">    
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Nf</th>
+                    <th>Fornecedor</th>
+                    <th>Recebido</th>
+                    <th>Pago</th>
+                    <th>Obra</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%= f.date_select :data, class: "form-control controle_de_obra_data" %></td>
+                    <td><%= f.number_field :nf, class: "form-control controle_de_obra_nf" %></td>
+                    <td><%= f.text_field :fornecedor, class: "form-control controle_de_obra_fornecedor" %></td>
+                    <td><%= f.text_field :recebido, class: "form-control controle_de_obra_recebido" %></td>
+                    <td><%= f.text_field :pago, class: "form-control controle_de_obra_pago" %></td>
+                    <td><%= f.collection_select :obra_id, Obra.all, :id, :name, {prompt: "Selecione uma obra"}, {class: "form-control"} %></td>
+                  </tr>
+                  </tbody>
+              </table>        
+              <!-- Modal -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <%= submit_tag "Create", class: "btn btn-primary" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+  <% end %>
+<!-- Modal -->

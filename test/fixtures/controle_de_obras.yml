@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2016-12-23
+  nf: 1
+  fornecedor: MyString
+  recebido: 9.99
+  pago: 9.99
+  obra_id: 
+
+two:
+  data: 2016-12-23
+  nf: 1
+  fornecedor: MyString
+  recebido: 9.99
+  pago: 9.99
+  obra_id: 

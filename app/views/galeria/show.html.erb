@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>
+          <%= @galerium.name %>
+          <br>
+          <small>
+            <%= @galerium.description %>
+          </small>
+        </h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <div class="row">
+          <% @galerium.images.each do |image| %>
+          <div class="col-md-55">
+            <%= link_to image.foto.url, class: "fancybox thumbnail galeriathumb ", :rel => 'group' do %>
+            <%= image_tag image.foto.url(:medium) %>
+            <% end %>
+            </div>
+          <% end %>
+          
+        </div>
+        <div class="row">
+        <%= link_to "Voltar", obra_galeria_path, class: "btn btn-info" %>
+        </div>
+    </div>
+  </div>
+</div>

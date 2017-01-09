@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  preco: 9.99
+  vencimento: 2016-12-22
+  descricao: MyText
+  parcelas: 1
+  situacao: MyString
+
+two:
+  preco: 9.99
+  vencimento: 2016-12-22
+  descricao: MyText
+  parcelas: 1
+  situacao: MyString

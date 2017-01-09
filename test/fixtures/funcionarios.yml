@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: 1
+  rg: 1
+  cpf: 1
+  adress: MyString
+  ctps: 1
+  in_date: 2017-01-03
+  out_date: 2017-01-03
+  function: MyString
+  obra_id: 1
+
+two:
+  name: MyString
+  phone: 1
+  rg: 1
+  cpf: 1
+  adress: MyString
+  ctps: 1
+  in_date: 2017-01-03
+  out_date: 2017-01-03
+  function: MyString
+  obra_id: 1

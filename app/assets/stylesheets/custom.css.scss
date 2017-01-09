@@ -1,0 +1,174 @@
+#logo img {
+	max-width: 200px;
+	text-align: center;
+     
+}
+
+h2 {
+    color: #337ab7;
+}
+
+.tile-plain {
+	height: 15em!important;
+}
+
+.tile-stats .icon {
+    color: #f0ad4e;
+}
+
+
+.nav_title {
+	padding-left: 15px;
+}
+
+.btn.btn-app {
+    position: relative;
+    padding: 25px;
+    margin: 0 0 10px 10px;
+    width: 250px;
+    height: 150px;
+    box-shadow: none;
+    border-radius: 0;
+    text-align: center;
+    color: #666;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    font-size: 20px;
+}
+.btn.btn-app>.fa {
+    font-size: 45px;
+    display: block;
+    margin-bottom: 20px;
+}
+.acompanhamento {
+	background-color: rgba(91, 192, 222, 0.85) !important;
+    color: #fff!important;
+}
+
+.galeria {
+	background-color: #1ABB9C !important;
+    color: #fff!important;
+}
+
+
+.documento {
+	background-color: rgba(255, 190, 99, 0.92) !important;
+    color: #fff!important;
+}
+.pagamento {
+	background-color: rgba(217, 83, 79, 0.85) !important;
+    color: #fff!important;
+}
+
+.modal-dialog {
+    width: auto!important;
+}
+
+._56h9 {
+    border: 1px dashed #7f7f7f;
+    border-radius: 5px;
+    color: #ccc;
+    cursor: pointer;
+    display: table;
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    font-weight: normal;
+    height: 204px;
+    width: 204px;
+}
+._5vwq {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+._5vwr {
+    background-image: url("/images/wIj3_Hx7V7N.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 48px 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+._3jk {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.galeriathumb {
+    height: 204px !important;
+    width: 204px !important;
+    padding: 0 !important;
+}
+
+.thumbnail .image {
+    height: 140px !important;
+}
+
+.view .mask {
+    height: 100%;
+}
+
+.view .tools {
+    margin: 60px 0 0 0;
+}
+
+  .hover-btn {
+     position: absolute;
+     right: 15px;
+     display: none;
+  }
+
+  .col-md-55:hover .hover-btn {
+     display: block;
+  }
+  
+  ._c1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.login_content {
+    background: rgba(255, 255, 255, 0.41);
+    padding: 25px !important;
+    text-shadow: none;
+    color: #5181c4;
+}
+
+.body #wrapper {
+    margin-top: 10%;
+}
+
+@media (min-width: 768px) {
+    .imgbg {
+        background-image: url("/images/mainbg.jpg");
+        background-size: cover;      
+        background-repeat:   no-repeat;
+    }
+}
+
+@media (max-width: 768px) {
+    .imgbg {
+        background-color: #5085c9;
+    }
+}
+
+.projects {
+    .fa-check {
+    color: rgb(143, 199, 11);
+}
+    .fa-ban {
+        color: red;
+    }
+}

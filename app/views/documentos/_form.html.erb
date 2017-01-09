@@ -1,0 +1,34 @@
+<%= form_for @documento, html: { multipart: true } do |f| %>
+  <% if @documento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@documento.errors.count, "error") %> prohibited this documento from being saved:</h2>
+
+      <ul>
+      <% @documento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :descricao %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :obra %><br>
+    <%= f.collection_select :obra_id, Obra.all, :id, :name, {prompt: "Selecione uma obra"}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :documento %><br>
+    <%= f.file_field :document %>
+  </div>
+  <div class="ln_solid"></div>
+  <div class="actions">
+    <%= f.submit "Criar Documento", class: "btn btn-primary" %>
+  </div>
+<% end %>

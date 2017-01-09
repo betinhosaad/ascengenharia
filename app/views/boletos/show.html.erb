@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Preco:</strong>
+  <%= @boleto.preco %>
+</p>
+
+<p>
+  <strong>Vencimento:</strong>
+  <%= @boleto.vencimento %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @boleto.descricao %>
+</p>
+
+<p>
+  <strong>Parcelas:</strong>
+  <%= @boleto.parcelas %>
+</p>
+
+<p>
+  <strong>Situacao:</strong>
+  <%= @boleto.situacao %>
+</p>
+
+<%= link_to 'Edit', edit_boleto_path(@boleto) %> |
+<%= link_to 'Back', boletos_path %>

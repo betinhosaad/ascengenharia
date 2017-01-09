@@ -1,0 +1,41 @@
+<%= form_for(@controle_de_obra) do |f| %>
+  <% if @controle_de_obra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@controle_de_obra.errors.count, "error") %> prohibited this controle_de_obra from being saved:</h2>
+
+      <ul>
+      <% @controle_de_obra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :data %><br>
+    <%= f.date_select :data, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nf %><br>
+    <%= f.number_field :nf, class: "form-control" %>
+  </div>
+  <div class="form-grup">
+    <%= f.label :fornecedor %><br>
+    <%= f.text_field :fornecedor, class: "form-control" %>
+  </div>
+  <div class="form-grup">
+    <%= f.label :recebido %><br>
+    <%= f.text_field :recebido, class: "form-control" %>
+  </div>
+  <div class="form-grup">
+    <%= f.label :pago %><br>
+    <%= f.text_field :pago, class: "form-control" %>
+  </div>
+  <div class="form-grup">
+    <%= f.label :obra_id %><br>
+    <%= f.text_field :obra_id, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

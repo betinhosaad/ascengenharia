@@ -1,0 +1,50 @@
+<div class="col-md-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Meus Documentos</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <!-- start project list -->
+        <table class="table table-striped projects">
+          <thead>
+            <tr>
+              <th style="width: 10%">Código</th>
+              <th style="width: 15%">Nome</th>
+              <th style="width: 45%">Descrição</th>
+              <th style="width: 15%">Criado em</th>
+              <th style="width: 15%"></th>
+            </tr>
+          </thead>
+          <tbody>
+                <% @obra.documentos.each do |doc| %>
+                    <tr>
+                      <td><%= doc.id %></td>
+                      <td>
+                        <%= doc.title %>
+                      </td>
+                      <td>
+                        <%= doc.description %>
+                      </td>
+                      <td>
+                        <%= doc.created_at.strftime("%d / %m / %Y as %H:%M ") %>
+                      </td>
+                      <td class="pull-right">
+                            <% if !doc.document.blank? %>
+                                <%= link_to doc.document.url, class: "btn btn-primary btn-xs" do %>
+                                <i class="fa fa-folder"></i> Ver
+                                <% end %>
+                            <% else %>
+                                <i class="fa fa-folder"></i> Sem anexos
+                            <% end %>
+                      </td>
+                    </tr>
+                <% end %>
+          </tbody>
+        </table>
+        <!-- end project list -->
+        
+        <%= link_to "Voltar", obra_path(@obra), class: "btn btn-info" %>
+      </div>
+    </div>
+</div>

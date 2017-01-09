@@ -1,0 +1,27 @@
+<!-- top navigation -->
+  <div class="top_nav">
+  
+    <div class="nav_menu">
+      <nav class="" role="navigation">
+              <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="">
+            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <%= image_tag current_user.avatar.url %><%= current_user.email %>
+              <span class=" fa fa-angle-down"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-usermenu pull-right">
+              <li><%= link_to "Meu Perfil", edit_user_registration_path %>
+              </li>
+              <li><%= link_to " Sair", destroy_user_session_path, class: "fa fa-sign-out pull-right",  method: :delete %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+  </div>
+<!-- /top navigation -->

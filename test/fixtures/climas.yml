@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sol: false
+  nublado: false
+  chuva: false
+  impraticavel: false
+
+two:
+  sol: false
+  nublado: false
+  chuva: false
+  impraticavel: false

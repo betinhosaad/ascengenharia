@@ -39,7 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.1'
 
 gem "paperclip", "~> 5.0.0"
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '< 2.3'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem 'rails_admin', '~> 1.0'
 gem "prawn"

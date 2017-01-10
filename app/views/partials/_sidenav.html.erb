@@ -47,6 +47,25 @@
                   </ul>
                 </li> 
             <% end %>
+            <% if current_user.admin? %>
+            <% Obra.all.each do |obra| %> 
+                <li>
+                  <%= link_to obra_path(obra) do %>
+                  <i class="fa fa-home"></i>  <%= obra.name %>
+                  <% end %>
+                  <ul class="nav child_menu" style="display: block">
+                    <li><%= link_to "Acompanhamento", obra_acompanhamento_path(obra) %>
+                    </li>
+                    <li><%= link_to "Galeria", obra_galeria_path(obra) %>
+                    </li>
+                    <li><%= link_to "Documentos", obra_docs_path(obra) %>
+                    </li>
+                    <li><%= link_to "Pagamentos", obra_boletos_path(obra) %>
+                    </li>
+                  </ul>
+                </li> 
+            <% end %>
+            <% end %>
           </ul>
         </div>
       </div>
